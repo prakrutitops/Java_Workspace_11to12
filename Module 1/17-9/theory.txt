@@ -1,0 +1,51 @@
+Setup:
+
+--------------------------------JDK------------------------------------------------
+1)Download and Install JDK
+https://www.oracle.com/in/java/technologies/downloads/
+
+2)Set the path
+C:\Program Files\Java\jdk1.8.0_191\bin
+
+3)
+This PC ->right click->advanced system settings->
+environment variables->Click on Path ->Edit->Paste your PATH->click on Finish
+
+4)Again Open CMD and type "javac"
+--------------------------------Eclipse--------------------------------------------
+1) https://www.eclipse.org/downloads/
+
+JDK->Java Development Kit
+JRE->Java Runtime Environment
+JVM->Java Virtual Machine
+
+
+Packages
+
+
+Visibility Modifiers:
+public
+private
+protected
+
+
+Artihmetic OP: +,-,*,/,%
+Shorthand Op/Assignment Op: +=,-=,*=,/=,%=
+Relational Op:<,>,<=,>=,==,!=
+
+
+
+
+
+
+conditional statement:
+if-else
+
+
+
+
+
+
+
+
+
