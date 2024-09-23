@@ -1,0 +1,16 @@
+Encapsulation:Wrapping up of data or binding of data
+
+set
+get
+setter-getter[Model Class]
+
+Array: Collection of elements
+
+1)single dimensional array
+2)multi dimensional array
+
+int marks[] = new int[5];
+
+datatype array_variable = new datatype[size];
+
+you can't change array's value dynamically
