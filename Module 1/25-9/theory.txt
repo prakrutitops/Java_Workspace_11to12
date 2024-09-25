@@ -1,0 +1,24 @@
+OOP:
+
+Features of OOP
+
+1)Object: Any Entity which has own state and behaviour
+
+2)Class:collection of objects
+
+3)Abstraction: Hiding internal details and showing functionalities
+
+4)Encapsulation:Wrapping up of data or binding of dtaa
+
+5)Inheritance:when one object acquire all the properties and 
+behaviour of parent class
+
+6)Polymorphism:Many ways to perform anything
+
+interface:collection of abstract methods
+
+abstract method means which does not have a body part
+you can hide the data
+
+
+
