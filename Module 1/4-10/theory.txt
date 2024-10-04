@@ -1,0 +1,64 @@
+Wrapper Class
+Garbage Collection
+Thread
+
+
+
+
+int = Integer.parseInt()
+String = String.valueof()
+
+
+int -> data type
+Integer -> wrapper class
+
+double
+Double
+
+
+
+final
+finally
+finalize
+
+Thread:Handle the process
+
+Process->
+
+Class->Thread
+Interface->Runnable
+
+Thread Lifecycle
+1)init
+2)start
+3)run
+4)stop
+5)destroy
+
+Synchronization
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
