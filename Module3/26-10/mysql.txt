@@ -1,0 +1,49 @@
+DDL
+DML
+DQL
+DCL
+
+Functions:
+1)Agreegate Function:
+MAX->select MAX(p_price) from tablename;
+MIN
+SUM
+AVG
+
+FIRST->SELECT p_price FROM products LIMIT 1;
+LAST->SELECT * FROM products ORDER by p_price DESC LIMIT 1;
+
+
+2)Scalar Function:
+UCASE->SELECT UCASE(p_name) FROM products
+LCASE->SELECT LCASE(p_name) FROM products
+MID->SELECT MID(p_name,1,3) FROM products
+LEN->SELECT LENGTH(p_name)FROM products
+
+key:
+1)primary
+2)foreign
+3)unique
+
+JOINS:
+1)inner join->SELECT * FROM address JOIN details on address.id = details.id
+2)left join->SELECT * FROM address LEFT JOIN details on address.id = details.id
+3)right join->SELECT * FROM address RIGHT JOIN details on address.id = details.id
+4)full join->
+SELECT * FROM address LEFT JOIN details on address.id = details.id
+UNION
+SELECT * FROM address RIGHT JOIN details on address.id = details.id
+
+Procedure:
+->procedure may have a return type
+
+DELIMITER //
+
+	CREATE PROCEDURE myproc(INOUT myid int)
+    
+    BEGIN
+    	SELECT * FROM details WHERE id = myid;
+    END //
+
+DELIMITER ;
+
