@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function checknum(elem,msg)
+	{
+		
+		var numexp=/^[0-9]+$/;
+		
+		if(elem.value.match(numexp))
+		{
+			
+			
+			return false;
+				
+		}
+		else
+		{
+			alert(msg);
+			elem.focus();
+			return true;
+		}
+	}
+
+
+</script>
+
+
+
+</head>
+<body>
+
+
+<form>
+	Enter Any Value:<input type="text" name="data" id="data">
+	<input type="submit" value="Go" onclick="checknum(document.getElementById('data'),'Please Enter Numbers Only')">
+</form>
+
+
+</body>
+</html>
