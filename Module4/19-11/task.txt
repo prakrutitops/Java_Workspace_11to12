@@ -1,0 +1,32 @@
+1.
+Login
+
+Email
+Password
+
+do you want to signup?
+
+2.
+Signup
+
+firstname
+lastname
+email
+phone
+gender
+password
+confirm password
+
+do you want to login?
+
+3.After Login 
+
+Dashboard [Button-Add Products]->another form,Logout
+
+product name
+product price
+product description
+
+Mobile Products[View->ascending order]->edit,delete
+
+
