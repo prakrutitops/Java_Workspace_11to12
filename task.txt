@@ -1,0 +1,11 @@
+servlet:
+
+signup -> after signup you will receive one OTP
+verify the OTP if it's correct then user will be
+registered after that you can login
+ 
+login->with correct credentials only
+
+after login it shows your profile and one option for logout[Session]
+
+

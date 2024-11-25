@@ -1,0 +1,13 @@
+JSP -> Java Server Pages
+
+Tags
+
+1)Scriptlet Tag
+<%Java Source Code%>
+
+2)Expression Tag
+<%=Statement%>
+
+3)Declaration Tag
+<%!Logic%>
+<%=Statement%>
