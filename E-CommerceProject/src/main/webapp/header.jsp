@@ -144,10 +144,27 @@
                      </nav>
                   </div>
                   <div class="col-md-3 col-sm-5 d_none">
+                     
+                     
+                     <%
+                     	if(session.getAttribute("project")!=null)
+                     	{
+                     %>
+                       <a class="swd-button" href="logout.jsp">logout</a>
+                     <% 		
+                     	}
+                     	else
+                     	{
+                     		
+                     	
+                     %>
                      	
                      <a class="swd-button" href="signup.jsp">sign up </a>
                      <a class="swd-button" href="signin.jsp">sign in </a>
-                     
+                    
+                     <%
+                     	}
+                     %>
                      	
                   </div>
                </div>
