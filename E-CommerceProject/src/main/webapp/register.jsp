@@ -14,6 +14,15 @@
 <body>
 
 	<%
+    
+	    response.setHeader("cache-control", "no-cache");
+	    response.setHeader("cache-control", "no-store");
+	    response.setHeader("pragma", "no-cache");
+	    response.setDateHeader("Expires", 0);
+    
+    %>
+	
+	<%
 	
 		int status = Dao.signupuser(m);
 	

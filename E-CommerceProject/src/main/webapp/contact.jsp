@@ -1,3 +1,5 @@
+<%@page import="com.dao.Dao"%>
+<%@page import="com.model.SignupModel"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -17,45 +19,52 @@
     
     %>
 	
-
-<jsp:include page="header.jsp"/>
+	<jsp:include page="header.jsp"/>
 
 	<div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">
-		<h4 class="card-title mt-3 text-center">Login With Your Account</h4>
+	
 		
 		
 		
-		<form name="registrationForm" action="login.jsp"  method="get" onsubmit="return validateForm()">
+		<form action="https://api.web3forms.com/submit" method="post">
+			
+			 <input type="hidden" name="access_key" value="c07abbbb-c3a8-45a4-96be-811c650f4ea5">
 			
 			<!-- form-group// -->
 			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-envelope"></i>
-					</span>
-				</div>
+				
 				<input name="email" class="form-control" placeholder="Email address"
-					type="email" id="email" onblur="verifyEmail()">
+					type="email" id="email">
 					
 			</div>
 			
 			<div class="form-group input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"> <i class="fa fa-lock"></i>
-					</span>
-				</div>
-				<input class="form-control" placeholder="Enter password"
-					type="password" name="password" id="password">
+				
+				<input name="fullname" class="form-control" placeholder="Enter Name"
+					type="text" id="fullname">
+					
 			</div>
+			
+			<div class="form-group input-group">
+				
+				<!-- <textarea name="query" class="form-control" placeholder="Query"
+					 id="query"> -->
+					 
+				<input name="query" class="form-control" placeholder="Enter Query"
+					type="text" id="query">
+					
+			</div>
+			
+			
+			
 			
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary btn-block">
-					Login</button>
+					Submit Query</button>
 			</div>
-			<!-- form-group// -->
-			<p class="text-center">
-			Do you want to <a href="signup.jsp">Sign up?</a>
-			</p>
+			
+			
 		</form>
 		<span id="tops"></span>
 		</article>
@@ -64,5 +73,11 @@
 	
 
 <jsp:include page="footer.jsp"/>
+
+
+	
+	
+		
+
 </body>
 </html>

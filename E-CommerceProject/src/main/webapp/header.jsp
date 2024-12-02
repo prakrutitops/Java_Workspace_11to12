@@ -88,6 +88,35 @@
                      </ul>
                      
                   </div>
+                  <%
+                  	if(session.getAttribute("project")!=null)
+                  	{
+                  		
+                  	
+                  	
+                  %>
+                  <div class="col-md-6 col-sm-6 ">
+                    
+                      <label style="color: white; margin-left: 250px;">Your Name is: <%=session.getAttribute("fullname") %></label>
+                      <br>
+                      <label style="color: white; margin-left: 250px;">Your Email is: <%=session.getAttribute("email") %></label>
+                      <br>
+                      <label style="color: white; margin-left: 250px;">Your Number is: <%=session.getAttribute("phone") %></label>
+                    
+                  </div>
+                  
+                  <%
+                  	}
+                  	else
+                  	{
+                  %>
+                  
+                  
+                  
+                  <% 		
+                  	}
+                  %>
+                  
                  
                </div>
             </div>
@@ -121,24 +150,35 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
-                              <li class="nav-item active">
-                                 <a class="nav-link" href="index.html"> Home </a>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="index.jsp"> Home </a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="about.html">about</a>
+                                 <a class="nav-link" href="about.jsp">about</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="service.html">services</a>
+                                 <a class="nav-link" href="contact.jsp">contact us </a>
+                              </li>
+                              
+                              <%
+                              	if(session.getAttribute("project")!=null)
+                              	{
+                              		
+                              	
+                              %>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="product.jsp">Products</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="team.html">team </a>
+                                 <a class="nav-link" href="wishlist.jsp">Wishlist</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="client.html">Clients</a>
+                                 <a class="nav-link" href="cart.jsp">Cart</a>
                               </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="contact.html"> contact us </a>
-                              </li>
+                              
+                              <%
+                              	}
+                              %>
                            </ul>
                         </div>
                      </nav>
