@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.model.ProductModel;
 import com.model.SignupModel;
+import com.model.WishlistModel;
 
 public class Dao 
 {
@@ -140,6 +141,101 @@ public class Dao
 				pm.setP_price(p_price);
 				pm.setP_des(p_des);
 				pm.setP_image(encode);
+				
+				list.add(pm);
+				
+			}
+		}
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+		
+	}
+	
+	public static WishlistModel getproductindexwise(int id)
+	{
+		Connection con = Dao.getconnect();
+		WishlistModel wm = null;
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from products where id=?");
+			ps.setInt(1, id);
+			
+			ResultSet set = ps.executeQuery();
+			
+			if(set.next())
+			{
+				
+				int id1 = set.getInt(1);
+				String p_name = set.getString(2);
+				String p_price = set.getString(3);
+				String p_des = set.getString(4);
+				
+				byte[] imgData = set.getBytes(5);
+				String encode = Base64.getEncoder().encodeToString(imgData);
+				//String p_image = set.getString(5);
+				//String email = set.getString(6);
+			
+				wm = new WishlistModel();
+				wm.setId(id);
+				wm.setP_name(p_name);
+				wm.setP_price(p_price);
+				wm.setP_des(p_des);
+				wm.setP_image(encode);
+				
+				
+				
+			}
+		}
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return wm;
+		
+	}
+	
+	public static List<WishlistModel>wishlistviewproducts()
+	{
+		
+		List<WishlistModel>list = new ArrayList<>();
+		
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from wishlist");
+			ResultSet set = ps.executeQuery();
+			
+			while(set.next())
+			{
+				
+				int id = set.getInt(1);
+				String p_name = set.getString(2);
+				String p_price = set.getString(3);
+				String p_des = set.getString(4);
+				
+				byte[] imgData = set.getBytes(5);
+				String encode = Base64.getEncoder().encodeToString(imgData);
+				//String p_image = set.getString(5);
+				
+				String email = set.getString("email");
+				
+				WishlistModel pm = new WishlistModel();
+				pm.setId(id);
+				pm.setP_name(p_name);
+				pm.setP_price(p_price);
+				pm.setP_des(p_des);
+				pm.setP_image(encode);
+				pm.setEmail(email);
 				
 				list.add(pm);
 				

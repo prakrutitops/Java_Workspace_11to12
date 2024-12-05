@@ -1,5 +1,5 @@
 <%@page import="com.dao.Dao"%>
-<%@page import="com.model.ProductModel"%>
+<%@page import="com.model.WishlistModel"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -69,9 +69,9 @@
 		<div class="product-grid">
 		
 		<%
-			List<ProductModel>list = Dao.viewproducts();
+			List<WishlistModel>list = Dao.wishlistviewproducts();
 		
-			for(ProductModel m : list)
+			for(WishlistModel m : list)
 			{
 		%>
 		
@@ -85,35 +85,6 @@
 				<b>Product Description: </b><p><%=m.getP_des() %></p>
 				
 				
-				<form action="addtowishlist.jsp">
-				
-					<p>
-						<input type=hidden name="id" value="<%=m.getId() %>">
-					</p>
-					
-					<p>
-					<input type="submit" class="swd-button" value="Wishlist">
-					
-					</p>
-					
-				
-				
-				</form>
-				
-				<form action="addtocart.jsp">
-				
-					<p>
-						<input type="hidden" name="id" value="<%=m.getId() %>">
-					</p>
-					
-					<p>
-					<input type="submit" class="swd-button" value="Cart">
-					
-					</p>
-					
-				
-				
-				</form>
 				
                 
 				
