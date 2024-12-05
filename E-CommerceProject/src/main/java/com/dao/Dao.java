@@ -6,7 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
+
+import com.model.ProductModel;
 import com.model.SignupModel;
 
 public class Dao 
@@ -16,17 +19,19 @@ public class Dao
 	{
 		Connection con = null;
 		
+		
 		try 
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom","root","");
-
+		
 		}
 		catch (Exception e) 
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		return con;
 	}
@@ -103,6 +108,57 @@ public class Dao
 		
 		
 	}
+	
+	
+	public static List<ProductModel>viewproducts()
+	{
+		
+		List<ProductModel>list = new ArrayList<>();
+		
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from products");
+			ResultSet set = ps.executeQuery();
+			
+			while(set.next())
+			{
+				
+				int id = set.getInt(1);
+				String p_name = set.getString(2);
+				String p_price = set.getString(3);
+				String p_des = set.getString(4);
+				
+				byte[] imgData = set.getBytes(5);
+				String encode = Base64.getEncoder().encodeToString(imgData);
+				//String p_image = set.getString(5);
+				
+				ProductModel pm = new ProductModel();
+				pm.setId(id);
+				pm.setP_name(p_name);
+				pm.setP_price(p_price);
+				pm.setP_des(p_des);
+				pm.setP_image(encode);
+				
+				list.add(pm);
+				
+			}
+		}
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+		
+	}
+	
+	
+	
+	
 	
 	
 }
