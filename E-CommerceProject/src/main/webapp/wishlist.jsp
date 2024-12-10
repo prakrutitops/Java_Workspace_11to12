@@ -69,7 +69,7 @@
 		<div class="product-grid">
 		
 		<%
-			List<WishlistModel>list = Dao.wishlistviewproducts();
+			List<WishlistModel>list = Dao.wishlistviewproducts(session.getAttribute("email").toString());
 		
 			for(WishlistModel m : list)
 			{

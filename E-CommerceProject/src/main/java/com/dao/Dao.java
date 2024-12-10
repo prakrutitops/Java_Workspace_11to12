@@ -203,7 +203,7 @@ public class Dao
 		
 	}
 	
-	public static List<WishlistModel>wishlistviewproducts()
+	public static List<WishlistModel>wishlistviewproducts(String email)
 	{
 		
 		List<WishlistModel>list = new ArrayList<>();
@@ -212,7 +212,8 @@ public class Dao
 		
 		try 
 		{
-			PreparedStatement ps = con.prepareStatement("select * from wishlist");
+			PreparedStatement ps = con.prepareStatement("select * from wishlist where email=?");
+			ps.setString(1, email);
 			ResultSet set = ps.executeQuery();
 			
 			while(set.next())
@@ -227,7 +228,7 @@ public class Dao
 				String encode = Base64.getEncoder().encodeToString(imgData);
 				//String p_image = set.getString(5);
 				
-				String email = set.getString("email");
+				String email1 = set.getString("email");
 				
 				WishlistModel pm = new WishlistModel();
 				pm.setId(id);
@@ -235,7 +236,7 @@ public class Dao
 				pm.setP_price(p_price);
 				pm.setP_des(p_des);
 				pm.setP_image(encode);
-				pm.setEmail(email);
+				pm.setEmail(email1);
 				
 				list.add(pm);
 				
