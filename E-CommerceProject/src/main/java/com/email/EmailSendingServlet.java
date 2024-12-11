@@ -83,7 +83,7 @@ public class EmailSendingServlet extends HttpServlet
 			//resp.sendRedirect("otpverify.jsp");
 			
 			
-			//resp.sendRedirect("o1.jsp");
+			resp.sendRedirect("otp.jsp");
 		} 
 		catch (AddressException e) 
 		{

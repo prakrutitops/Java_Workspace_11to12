@@ -34,7 +34,12 @@
     		String phone = request.getParameter("phone");
     		String pass = request.getParameter("password");
     		String repass = request.getParameter("repassword");
-    	
+    		
+    		session.setAttribute("myname",name);
+    		session.setAttribute("myemail",email);
+			session.setAttribute("myphone",phone);
+			session.setAttribute("mypass",pass);
+    		
     
     		if(pass.equals(repass))
     		{
