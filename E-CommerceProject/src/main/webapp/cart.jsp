@@ -1,5 +1,5 @@
 <%@page import="com.dao.Dao"%>
-<%@page import="com.model.WishlistModel"%>
+<%@page import="com.model.CartModel"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -69,9 +69,9 @@
 		<div class="product-grid">
 		
 		<%
-			List<WishlistModel>list = Dao.wishlistviewproducts(session.getAttribute("email").toString());
+			List<CartModel>list = Dao.cartviewproducts(session.getAttribute("email").toString());
 		
-			for(WishlistModel m : list)
+			for(CartModel m : list)
 			{
 		%>
 		
@@ -84,14 +84,15 @@
 				<b>Product Price: </b><p><%=m.getP_price() %></p>
 				<b>Product Description: </b><p><%=m.getP_des() %></p>
 				
-					<form action="addtocartfromwishlist.jsp">
+				
+				<form action="payment.jsp">
 				
 					<p>
 						<input type="hidden" name="id" value="<%=m.getId() %>">
 					</p>
 					
 					<p>
-					<input type="submit" class="swd-button" value="Add to Cart">
+					<input type="submit" class="swd-button" value="Proceed to Payment">
 					
 					</p>
 					
@@ -99,22 +100,20 @@
 				
 				</form>
 				
-				
-			<form action="wishlistdelete.jsp">
+				<form action="cartdelete.jsp">
 				
 					<p>
 						<input type="hidden" name="id" value="<%=m.getId() %>">
 					</p>
 					
 					<p>
-					<input type="submit" class="swd-button" value="Remove from Wishlist">
+					<input type="submit" class="swd-button" value="Remove from Cart">
 					
 					</p>
 					
 				
 				
 				</form>
-				
 				
                 
 				
@@ -123,6 +122,8 @@
 		<%
 			}
 		%>
+		
+		
 		
 		<%
 		}
