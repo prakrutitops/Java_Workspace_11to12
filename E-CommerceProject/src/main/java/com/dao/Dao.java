@@ -375,6 +375,74 @@ public class Dao
 		return status;
 	}
 	
+	public static int deletefromwishlist(int id)
+	{
+		int status = 0;
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("delete from wishlist where id=?");
+			ps.setInt(1, id);
+			
+			status = ps.executeUpdate();
+		} 
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return status;
+	}
+	
+	public static WishlistModel getproductindexwise3(int id)
+	{
+		Connection con = Dao.getconnect();
+		WishlistModel cm = null;
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from wishlist where id=?");
+			ps.setInt(1, id);
+			
+			ResultSet set = ps.executeQuery();
+			
+			if(set.next())
+			{
+				
+				int id1 = set.getInt(1);
+				String p_name = set.getString(2);
+				String p_price = set.getString(3);
+				String p_des = set.getString(4);
+				
+				byte[] imgData = set.getBytes(5);
+				String encode = Base64.getEncoder().encodeToString(imgData);
+				//String p_image = set.getString(5);
+				//String email = set.getString(6);
+			
+				cm = new WishlistModel();
+				cm.setId(id);
+				cm.setP_name(p_name);
+				cm.setP_price(p_price);
+				cm.setP_des(p_des);
+				cm.setP_image(encode);
+				
+				
+				
+			}
+		}
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return cm;
+		
+	}
 	
 	
 	
