@@ -17,6 +17,7 @@
 		System.out.print(m2.getUsername());
 		if(m2!=null)
 		{
+			session.setAttribute("projectadmin", true);
 			response.sendRedirect("admindashboard.jsp");
 		}
 		else
