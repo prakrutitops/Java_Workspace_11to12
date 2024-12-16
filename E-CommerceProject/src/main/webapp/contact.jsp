@@ -25,24 +25,29 @@
 		<article class="card-body mx-auto" style="max-width: 400px;">
 	
 		
-		
-		
-		<form action="https://api.web3forms.com/submit" method="post">
+		<%
 			
-			 <input type="hidden" name="access_key" value="c07abbbb-c3a8-45a4-96be-811c650f4ea5">
+			if(session.getAttribute("project")!=null)
+			{
+		%>
+		
+		
+		
+		<form action="contactinsert.jsp" method="post">
+			
 			
 			<!-- form-group// -->
 			<div class="form-group input-group">
 				
 				<input name="email" class="form-control" placeholder="Email address"
-					type="email" id="email">
+					type="email" id="email" value="<%=session.getAttribute("email")%>">
 					
 			</div>
 			
 			<div class="form-group input-group">
 				
 				<input name="fullname" class="form-control" placeholder="Enter Name"
-					type="text" id="fullname">
+					type="text" id="fullname" value="<%=session.getAttribute("fullname")%>">
 					
 			</div>
 			
@@ -66,12 +71,70 @@
 			
 			
 		</form>
-		<span id="tops"></span>
-		</article>
-	</div>
+		
+		<% 		
+			}
+			else
+			{
+				
+			
+		
+		%>
+		
+		
+		
+		
+		
+		
+		<form action="https://api.web3forms.com/submit" method="post">
+			
+			 <input type="hidden" name="access_key" value="c07abbbb-c3a8-45a4-96be-811c650f4ea5">
+			
+			<!-- form-group// -->
+			<div class="form-group input-group">
+				
+				<input name="email" class="form-control" placeholder="Email address"
+					type="email" id="email">
+					
+			</div>
+			
+			<div class="form-group input-group">
+				
+				<input name="fullname" class="form-control" placeholder="Enter Name"
+					type="text" id="fullname" >
+					
+			</div>
+			
+			<div class="form-group input-group">
+				
+				<!-- <textarea name="query" class="form-control" placeholder="Query"
+					 id="query"> -->
+					 
+				<input name="query" class="form-control" placeholder="Enter Query"
+					type="text" id="query">
+					
+			</div>
+			
+			
+			
+			
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block">
+					Submit Query</button>
+			</div>
+			
+			
+		</form>
+		
 	<!-- card.// -->
 	
+	<%
+			}
+	%>
 
+<span id="tops"></span>
+		</article>
+	</div>
 <jsp:include page="footer.jsp"/>
 
 

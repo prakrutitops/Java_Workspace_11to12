@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+import com.model.AdminModel;
 import com.model.CartModel;
+import com.model.ContactModel;
 import com.model.ProductModel;
 import com.model.SignupModel;
 import com.model.WishlistModel;
@@ -444,6 +446,73 @@ public class Dao
 		
 	}
 	
+	public static int contactinsert(ContactModel m)
+	{
+		int status = 0;
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("insert into contact (fullname,email,query) values (?,?,?)");
+			
+			ps.setString(1,m.getFullname());
+			ps.setString(2,m.getEmail());
+			ps.setString(3,m.getQuery());
+			
+			
+			status = ps.executeUpdate();
+		}
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return status;
+		
+		
+	}
+	
+	public static AdminModel adminlogincheck(AdminModel m)
+	{
+		int status = 0;
+		Connection con = Dao.getconnect();
+		AdminModel m2 = null;
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from adminlogin where username=? and password=?");
+			
+			ps.setString(1,m.getUsername());
+			ps.setString(2,m.getPassword());
+			
+			ResultSet set = ps.executeQuery();
+			
+			if(set.next())
+			{
+				int id = set.getInt(1);
+				String uname = set.getString(2);
+				String pass = set.getString(3);
+			
+				
+				 m2 = new AdminModel();
+				m2.setId(id);
+				m2.setUsername(uname);
+				m2.setPassword(pass);
+				
+			}
+			
+			//status = ps.executeUpdate();
+		}
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return m2;
+		
+		
+	}
 	
 	
 }
