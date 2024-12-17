@@ -86,7 +86,8 @@ public class imageSave extends HttpServlet {
 				if(r>0)
 				{
 					System.out.println("done");
-					//response.sendRedirect("wishlist.jsp");
+					
+					response.sendRedirect("adminviewproducts.jsp");
 				}
 				else				
 				{

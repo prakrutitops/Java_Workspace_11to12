@@ -514,5 +514,26 @@ public class Dao
 		
 	}
 	
-	
+	public static int deletefromadminproduct(int id)
+	{
+		int status = 0;
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("delete from products where id=?");
+			ps.setInt(1, id);
+			
+			status = ps.executeUpdate();
+		} 
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return status;
+	}
 }
