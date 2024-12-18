@@ -1,3 +1,4 @@
+<%@page import="com.model.ContactModel"%>
 <%@page import="com.dao.Dao"%>
 <%@page import="com.model.ProductModel"%>
 <%@page import="java.util.List"%>
@@ -88,33 +89,56 @@
         <h2>Welcome to the Admin Panel</h2>
        	  <table class="scroll table table-bordered  " style="background-color:#343a40; color: white; ">
          <thead>
-            <th>Product Name</th>
-			<th>Product Price</th>
-			<th>Product Description</th>
-			<th>Product Image</th>
-			<th colspan="2"><b>Actions</b></th>
+            <th>Fullname</th>
+			<th>Email</th>
+			<th>Query</th>
+			<th colspan="2">Actions</th>
+			<!-- <th>Product Image</th>
+			<th colspan="2"><b>Actions</b></th> -->
          </thead>
          <tbody >
            <%
-			List<ProductModel> list = Dao.viewproducts();
-			for(ProductModel m : list)
+			List<ContactModel> list = Dao.viewcontactquery();
+			for(ContactModel m : list)
 			{
+				
+				String data = m.getStatus();//Pending
+				String data2="";
+				if(data.equals("Pending"))
+				{
+					data2 = "resolved";
+				}
+				else
+				{
+					data2 = "Pending";
+				}
+				
 			%>
 			<tr>
-				</td><td><%=m.getP_name() %></td><td><%=m.getP_price() %></td><td><%=m.getP_des() %></td><td><img src="data:image/jpeg;base64,<%=m.getP_image()%>" width="150px" height="200px" /></td>
-				 <td>
-                   <%--  <form action="" method="get">
+				</td><td><%=m.getFullname() %></td><td><%=m.getEmail() %></td><td><%=m.getQuery() %></td><td>
+				<form action="">
+				<select>
+					<option value="<%=data%>"><%=data%></option>
+					<option value="<%=data2%>"><%=data2%></option>
+					
+				</select>
+				<input type="submit" value="update">
+				</form>
+				</td>
+				
+				
+				
+				
+				<%--  <td>
+                    <form action="" method="get">
                         <input type="hidden" name="id" value="<%= m.getId() %>">
                         <a href=""><img src="images/edit1.png" width="20px" height="20px"/></a>
-                    </form> --%>
-                    
-           <a href="adminproductedit.jsp?id=<%=m.getId()%>"><img src="images/edit1.png" width="20px" height="20px"/></a></input>
-                    
+                    </form>
             	</td>
             	<td>
                    
                     <a href="adminproductdelete.jsp?id=<%=m.getId()%>"><img src="images/delete1.png" width="20px" height="20px"/></a></input>
-                 </td>	
+                 </td>	 --%>
 			</tr>	
 			
 			<%

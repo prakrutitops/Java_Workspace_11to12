@@ -453,7 +453,7 @@ public class Dao
 		
 		try 
 		{
-			PreparedStatement ps = con.prepareStatement("insert into contact (fullname,email,query) values (?,?,?)");
+			PreparedStatement ps = con.prepareStatement("insert into contact (fullname,email,query,status) values (?,?,?,'Pending')");
 			
 			ps.setString(1,m.getFullname());
 			ps.setString(2,m.getEmail());
@@ -536,4 +536,95 @@ public class Dao
 		
 		return status;
 	}
+	
+	public static List<ContactModel>viewcontactquery()
+	{
+		
+		List<ContactModel>list = new ArrayList<>();
+		
+		Connection con = Dao.getconnect();
+		
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from contact");
+			ResultSet set = ps.executeQuery();
+			
+			while(set.next())
+			{
+				
+				int id = set.getInt(1);
+				String fullname = set.getString(2);
+				String email = set.getString(3);
+				String query = set.getString(4);
+				String status = set.getString(5);
+				
+			
+				ContactModel pm = new ContactModel();
+				pm.setId(id);
+				pm.setFullname(fullname);
+				pm.setEmail(email);
+				pm.setQuery(query);
+				pm.setStatus(status);
+				
+				list.add(pm);
+				
+			}
+		}
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+		
+	}
+	
+	public static ProductModel fetchproductbyid(int id)
+	{
+		Connection con = Dao.getconnect();
+		ProductModel wm = null;
+		try 
+		{
+			PreparedStatement ps = con.prepareStatement("select * from products where id=?");
+			ps.setInt(1, id);
+			
+			ResultSet set = ps.executeQuery();
+			
+			if(set.next())
+			{
+				
+				int id1 = set.getInt(1);
+				String p_name = set.getString(2);
+				String p_price = set.getString(3);
+				String p_des = set.getString(4);
+				
+				byte[] imgData = set.getBytes(5);
+				String encode = Base64.getEncoder().encodeToString(imgData);
+				//String p_image = set.getString(5);
+				//String email = set.getString(6);
+			
+				wm = new ProductModel();
+				wm.setId(id);
+				wm.setP_name(p_name);
+				wm.setP_price(p_price);
+				wm.setP_des(p_des);
+				wm.setP_image(encode);
+				
+				
+				
+			}
+		}
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return wm;
+		
+	}
+	
 }
