@@ -1,0 +1,23 @@
+postman
+
+API Checking
+
+REST API
+
+API -> Application Programming interface
+
+Web   API     Server
+
+
+JSON -> JavaScript Object Notation
+XML -> xml format
+
+[] -> jsonarray
+{} -> jsonobject
+
+POST -> data send
+GET -> data receive
+PUT ->data update
+DELETE ->data delete
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZkYjRmZGNiN2MxNDVhOWNiZjZmZWYiLCJpYXQiOjE3MzczNTYyOTJ9.6LSbNEilYsKExc6TEVXdUEF3URdVrgQ8c9lVP0KI69A
